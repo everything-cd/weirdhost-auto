@@ -20,7 +20,7 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/027a2f87"):
             # --- Cookie 登录 ---
             if remember_web_cookie:
                 print("尝试使用 Cookie 登录...")
-                cookie = {
+                page.context.add_cookies([{
                     'name': 'remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d',
                     'value': remember_web_cookie,
                     'domain': 'hub.weirdhost.xyz',
@@ -29,8 +29,7 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/027a2f87"):
                     'httpOnly': True,
                     'secure': True,
                     'sameSite': 'Lax'
-                }
-                page.context.add_cookies([cookie])
+                }])
                 page.goto(server_url, wait_until="domcontentloaded")
                 if "login" in page.url or "auth" in page.url:
                     print("Cookie 登录失败，将回退到邮箱密码登录")
@@ -58,7 +57,7 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/027a2f87"):
                 # 点击登录按钮
                 page.click('button:has-text("로그인")')
 
-                # 检查登录是否成功（登录按钮消失视为成功）
+                # 等待登录按钮消失或超时
                 try:
                     page.wait_for_selector('button:has-text("로그인")', state='detached', timeout=30000)
                     print("邮箱密码登录成功！")
