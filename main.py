@@ -31,8 +31,8 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/c7206128"):
                 print("检测到 REMEMBER_WEB_COOKIE，尝试使用 Cookie 登录...")
                 session_cookie = {
                     'name': 'remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d',
-                    'value': remember_web_cookie,
-                    'domain': 'hub.weirdhost.xyz',  # 已更新为新的域名
+                    'value': remember_web_cookie.strip(),
+                    'domain': '.hub.weirdhost.xyz',  # 已更新为新的域名
                     'path': '/',
                       # 'expires': int(time.time()) + 3600 * 24 * 365, # 设置一个较长的过期时间
                     'httpOnly': True,
