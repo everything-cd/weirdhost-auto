@@ -30,7 +30,7 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/027a2f87"):
                     'name': 'remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d',
                     'value': remember_web_cookie.strip(),
                     'domain': '.hub.weirdhost.xyz',
-                    expires = int(time.time()) + 3600 * 24 * 365 * 3,  # 3 年
+                    'expires': int(time.time()) + 3600 * 24 * 365 * 3,  # 3 年
                     'path': '/',
                     'httpOnly': True,
                     'secure': True,
