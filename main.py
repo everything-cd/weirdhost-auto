@@ -34,7 +34,7 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/c7206128"):
                     'value': remember_web_cookie,
                     'domain': 'hub.weirdhost.xyz',  # 已更新为新的域名
                     'path': '/',
-                    'expires': int(time.time()) + 3600 * 24 * 365, # 设置一个较长的过期时间
+                      # 'expires': int(time.time()) + 3600 * 24 * 365, # 设置一个较长的过期时间
                     'httpOnly': True,
                     'secure': True,
                     'sameSite': 'Lax'
